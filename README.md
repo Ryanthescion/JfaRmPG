@@ -1,2 +1,2 @@
 # JfaRmPG
-We Make Game Go Brrrr
+Ryan is doing his best to learn how this all works :)
