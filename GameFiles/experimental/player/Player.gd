@@ -11,10 +11,10 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 		
 	# Handle rotation
-	if Input.is_action_just_pressed("rotate_cw"):
+	if Input.is_action_just_pressed("rotate_ccw"):
 		self.rotate(Vector3(0, 1, 0), 0.5 * PI)
 		
-	if Input.is_action_just_pressed("rotate_ccw"):
+	if Input.is_action_just_pressed("rotate_cw"):
 		self.rotate(Vector3(0, 1, 0), -0.5 * PI)
 
 	# Get the input direction and handle the movement/deceleration.
