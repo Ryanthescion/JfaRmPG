@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://3q2vfm0g6xsb"
-path="res://.godot/imported/wooden_barrel.glb-e65745a984f1e493dee821b7be3091fb.scn"
+uid="uid://50jlhpnqemyt"
+path="res://.godot/imported/First Barrel gltf.glb-9d364761e0fe8f15da1e4048d2d412cb.scn"
 
 [deps]
 
-source_file="res://assets/wooden_barrel.glb"
-dest_files=["res://.godot/imported/wooden_barrel.glb-e65745a984f1e493dee821b7be3091fb.scn"]
+source_file="res://First Barrel gltf.glb"
+dest_files=["res://.godot/imported/First Barrel gltf.glb-9d364761e0fe8f15da1e4048d2d412cb.scn"]
 
 [params]
 

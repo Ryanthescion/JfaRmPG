@@ -1,15 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4hcylgjb3l66"]
+[gd_scene load_steps=12 format=3 uid="uid://d4hcylgjb3l66"]
 
-[ext_resource type="Texture2D" uid="uid://b83v07sfyb27b" path="res://assets/wooden_barrel_Low Poly Barrel 256.png" id="1_k8r4p"]
 [ext_resource type="ArrayMesh" uid="uid://cswi2nkym3pup" path="res://assets/wooden_barrel.obj" id="2_6jqj1"]
+[ext_resource type="Texture2D" uid="uid://ct88iuya4j2hk" path="res://First Barrel gltf_Low Poly Barrel 256.png" id="3_lvehd"]
+[ext_resource type="PackedScene" uid="uid://bcx8kvh617cxc" path="res://assets/mushrooms.blend" id="3_wn7hf"]
+[ext_resource type="PackedScene" uid="uid://dugo7ko8ppvpq" path="res://assets/rock temp.blend" id="4_nrqbx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8y3n"]
-albedo_texture = ExtResource("1_k8r4p")
-texture_filter = 0
+[sub_resource type="Curve3D" id="Curve3D_dtsms"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5.69415, 1.2786, 4.36357, 0, 0, 0, 0, 0, 0, -27.3369, -2.57686, 14.8988, 0, 0, 0, 0, 0, 0, -32.3236, -18.1145, 8.04018, 0, 0, 0, 0, 0, 0, -7.95198, -27.3137, -25.737, 0, 0, 0, 0, 0, 0, 13.2746, -13.1206, -37.6029, 0, 0, 0, 0, 0, 0, 7.2652, -1.22735, -21.6661, 0, 0, 0, 0, 0, 0, -5.69415, 1.2786, 4.36357),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="MultiMesh" id="MultiMesh_e7f52"]
+transform_format = 1
+mesh = ExtResource("2_6jqj1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mitb4"]
+albedo_texture = ExtResource("3_lvehd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdqpn"]
+albedo_texture = ExtResource("3_lvehd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fhbh"]
+albedo_texture = ExtResource("3_lvehd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55cjo"]
+albedo_texture = ExtResource("3_lvehd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_165bu"]
+albedo_texture = ExtResource("3_lvehd")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="WoodenBarrel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15048, 0, -1.16116)
-material_override = SubResource("StandardMaterial3D_o8y3n")
-mesh = ExtResource("2_6jqj1")
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_dtsms")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7365, 0, 44.6308)
+multimesh = SubResource("MultiMesh_e7f52")
+
+[node name="mushrooms" parent="." instance=ExtResource("3_wn7hf")]
+transform = Transform3D(49.8604, 0, 10.2349, 0, 50.9, 0, -10.2349, 0, 49.8604, -4.28614, -0.556562, -1.99644)
+
+[node name="stem_001" parent="mushrooms" index="0"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -1.625, -0.125, 5.40061)
+
+[node name="Mushroom With Stem" parent="mushrooms" index="1"]
+transform = Transform3D(0.993427, -0.108521, 0.0364064, 0.108686, 0.994073, -0.00258187, -0.0359103, 0.00652175, 0.999334, 0.497773, -0.142796, -0.00781378)
+material_override = SubResource("StandardMaterial3D_mitb4")
+
+[node name="Mushroom With Stem_001" parent="mushrooms" index="2"]
+material_override = SubResource("StandardMaterial3D_sdqpn")
+
+[node name="Mushroom With Stem_002" parent="mushrooms" index="3"]
+material_override = SubResource("StandardMaterial3D_0fhbh")
+
+[node name="mush cap" parent="mushrooms" index="4"]
+transform = Transform3D(4.51291, 1.14357, -0.129461, -1.14191, 4.5146, 0.0728909, 0.143391, -0.0388884, 4.65498, -1.3817, 0.602681, 1.86265e-08)
+
+[node name="rock temp" parent="." instance=ExtResource("4_nrqbx")]
+transform = Transform3D(10.67, 0, 0, 0, 10.67, 0, 0, 0, 10.67, -49.86, -5.39358, 23.4307)
+
+[node name="simple rock" parent="rock temp" index="0"]
+material_override = SubResource("StandardMaterial3D_55cjo")
+
+[node name="simple rock_001" parent="rock temp" index="1"]
+material_override = SubResource("StandardMaterial3D_165bu")
+
+[editable path="mushrooms"]
+[editable path="rock temp"]

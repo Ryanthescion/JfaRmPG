@@ -23,3 +23,10 @@ project/assembly_name="RfaRmPG"
 3d_texture={
 "compress/mode": 0
 }
+scene={
+"gltf/embedded_image_handling": 3
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3
