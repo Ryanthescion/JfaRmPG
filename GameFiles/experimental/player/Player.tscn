@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://brvn117onevqr"]
+
+[ext_resource type="Script" path="res://experimental/player/Player.gd" id="1_wk55x"]
+[ext_resource type="Texture2D" uid="uid://dw6g4ggp1woi1" path="res://experimental/player/player_sprite.png" id="2_3cj8v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hwsbx"]
+radius = 5.0
+height = 20.0
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+floor_max_angle = 1.29329
+script = ExtResource("1_wk55x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_hwsbx")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+billboard = 2
+texture = ExtResource("2_3cj8v")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0.000112736, 4.67594e-06, -0.000112736, 0.996566, 0.0828081, 4.67594e-06, -0.0828082, 0.996566, 0, 0, 0)
+spring_length = 5.385
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(0.999884, 0.00505229, -0.0143742, -0.00399422, 0.997345, 0.0727077, 0.0147034, -0.0726417, 0.997249, 0, 2, 5)
